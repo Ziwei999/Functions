@@ -79,7 +79,7 @@ else if (localStorage.length > 0) {
 	updateForm(storedParams) // Update the form from these
 }
 
-let myNodelist = document.getElementsByTagName("list");
+let myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
@@ -100,7 +100,7 @@ for (i = 0; i < close.length; i++) {
 
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'list') {
+  if (ev.target.tagName === 'LI') {
 	ev.target.classList.toggle('checked');
   }
 }, false);
