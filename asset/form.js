@@ -79,6 +79,14 @@ else if (localStorage.length > 0) {
 	updateForm(storedParams) // Update the form from these
 }
 
+$(document).ready(function() {
+	// Dropdown functionality
+	$('.dropdown ul li').click(function() {
+	  $('.dropdown ul li').removeClass('selected');
+	  $(this).addClass('selected');
+	  $('.dropdown h1').html($(this).html()).removeClass().addClass('selected-' + ($(this).index() + 1));
+	});
+
 let myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
