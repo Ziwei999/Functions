@@ -200,3 +200,24 @@ section{
     background-color: blue;
     color: white;
   }
+
+  @media (min-width:1440px) {
+    .functions{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header{
+      grid-column: 1/span 2;
+      grid-row: 1;
+    }
+    .input-dropdown{
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .mylist{
+      grid-column: 2;
+      grid-row: 2;
+    }
+  }
