@@ -239,10 +239,14 @@ section{
 
   li{
     margin-top: 2rem;
+    list-style-type: none;
   }
 
   .list-item{
     width: 30%;
+    display: flex;
+    align-items: center;
+
   }
 
   .easy, .medium, .hard{
@@ -385,10 +389,33 @@ section{
   } */
 
   svg{
-    width: 100%;
+    width: 40%;
+    /* padding-top: 2rem; */
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
+    /* position: relative; */
   }
+
+  label, .radiobtn, .label-content{
+    display: inline-flex; 
+    align-items: center; 
+    
+  }
+
+  .radiobtn{
+    display: inline-flex; 
+    align-items: center; 
+    gap: 6px;
+  }
+
+  text{
+    padding: 0;
+    /* position: absolute;
+    padding-top: 6rem;
+    padding-left: 1.5rem; */
+  }
+
+
 
   .mylist {
     display: flex;
@@ -422,6 +449,12 @@ section{
     appearance: none;
     opacity: 0;
   }
+
+  .check--label, .check--label-text{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
   
   .check--label {
     font-size: 20px;
@@ -433,6 +466,7 @@ section{
     align-items: center;
     width: 300%;
     background-color: white;
+    padding-right: 2rem;
   }
   
   .check--label-box {
@@ -499,8 +533,16 @@ section{
   }
 
   .close{
-    position: absolute;
-    margin-left: 15rem;
+    /* cursor: pointer; */
+    margin-left: 7rem;
+    font-size: 2rem;
+  }
+
+  .difficulty-icon svg{
+    width: 300%;
+  }
+  fieldset{
+    margin-top: 2rem;
   }
 
   
@@ -518,12 +560,16 @@ section{
     }
 
     #myinput{
-      width:80%;
-      height: 30%;
+      width:92%;
+      height: 10%;
     }
 
     h1{
       margin-left: 8rem;
+    }
+
+    h2{
+      font-size: 2rem;
     }
 
     button{
@@ -538,7 +584,7 @@ section{
     #input-dropdown{
       grid-column: 1;
       grid-row: 2;
-      padding-left: 8rem;
+      padding-left: 2rem;
     }
 
     .level{
@@ -551,17 +597,45 @@ section{
       grid-row: 2;
     }
 
-    .sticker{
-      padding-top: 0;
-      padding-left: 2rem;
-      padding-right: 2rem;
+    
+    form{
+      padding-right: 3rem;
     }
 
-    .easy{
-      grid-column: 1;
+    legend{
+      font-size: 2rem;
     }
 
-    
+    fieldset{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-right: 5rem;
+    }
 
-    
+    text{
+      font-size: 1.5rem;
+    }
+
+    .level{
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+
+    .check--label-text{
+      font-size: 2.5rem;
+    }
+
+    .difficulty-icon svg{
+      width: 500%;
+    }
+
+    /* .easy{
+      width: 100%;
+    }
+
+    .radiobtn{
+      width: 70%;
+      padding-left: 3rem;
+    }
+     */
   }

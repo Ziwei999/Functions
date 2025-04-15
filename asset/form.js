@@ -79,177 +79,118 @@ else if (localStorage.length > 0) {
 	updateForm(storedParams) // Update the form from these
 }
 
-// $(document).ready(function() {
-// 	$('.dropdown ul li').click(function() {
-// 	  $('.dropdown ul li').each(function() {
-// 		if ($(this).hasClass('selected')) {
-// 		  $(this).removeClass('selected');
-// 		}
-// 	  });
-// 	  $(this).addClass('selected');
-// 	  $('.dropdown h1').html($(this).html()).removeClass().addClass('selected-' + ($(this).index()+1));
-// 	});
-//   });
-
-// const draggables = document.querySelectorAll('.level > section');
-
-//         draggables.forEach(draggable => {
-//             draggable.addEventListener('dragstart', () => {
-//                 draggable.classList.add('dragging');
-//             });
-
-//             draggable.addEventListener('dragend', () => {
-//                 draggable.classList.remove('dragging');
-//             });
-//         });
-
-//         document.addEventListener('dragover', (e) => {
-//             e.preventDefault();
-//             const dragging = document.querySelector('.dragging');
-//             const closest = Array.from(draggables).reduce((closest, child) => {
-//                 if (!child.classList.contains('dragging')) {
-//                     const box = child.getBoundingClientRect();
-//                     const offset = e.clientY - box.top - box.height / 2;
-//                     if (offset < 0 && offset > closest.offset) {
-//                         return { offset: offset, element: child };
-//                     } else {
-//                         return closest;
-//                     }
-//                 }
-//                 return closest;
-//             }, { offset: Number.NEGATIVE_INFINITY }).element;
-
-//             if (closest) {
-//                 closest.parentNode.insertBefore(dragging, closest);
-//             }
-//         });
-
-let isDown = false;
-let offset = { x: 0, y: 0 };
-
-// Allow dropping in the task section
-function allowDrop(event) {
-    event.preventDefault();
-}
-
-// Handle drag start
-function drag(event) {
-    event.dataTransfer.setData("text/html", event.target.outerHTML);
-}
-
-// Handle drop
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text/html");
-    const newElement = document.createElement("div");
-    newElement.className = 'dragme';
-    newElement.innerHTML = data;
-
-    // Set initial position of the new element
-    newElement.style.position = 'absolute';
-    newElement.style.left = (event.clientX - 25) + 'px';
-    newElement.style.top = (event.clientY - 25) + 'px';
-
-    // Add event listeners for moving the new element
-    newElement.addEventListener('mousedown', startDrag);
-    newElement.addEventListener('touchstart', startDrag);
-
-    document.querySelector('.task').appendChild(newElement);
-}
-
-function startDrag(e) {
-    isDown = true;
-    const target = e.target.closest('.dragme');
-    offset.x = (e.clientX || e.touches[0].clientX) - target.getBoundingClientRect().left;
-    offset.y = (e.clientY || e.touches[0].clientY) - target.getBoundingClientRect().top;
-
-    window.addEventListener('mousemove', dragMove);
-    window.addEventListener('touchmove', dragMove);
-    window.addEventListener('mouseup', stopDrag);
-    window.addEventListener('touchend', stopDrag);
-}
-
-function dragMove(e) {
-    if (!isDown) return;
-    const target = e.target.closest('.dragme');
-    if (target) {
-        target.style.left = (e.clientX || e.touches[0].clientX - offset.x) + 'px';
-        target.style.top = (e.clientY || e.touches[0].clientY - offset.y) + 'px';
-    }
-}
-
-function stopDrag() {
-    isDown = false;
-    window.removeEventListener('mousemove', dragMove);
-    window.removeEventListener('touchmove', dragMove);
-    window.removeEventListener('mouseup', stopDrag);
-    window.removeEventListener('touchend', stopDrag);
-}
-
-// Make sure to allow dropping on the task section
-document.querySelector('.task').addEventListener('dragover', allowDrop);
-document.querySelector('.task').addEventListener('drop', drop);
-
-
+const difficultySVGs = {
+    easy: `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 577 501"><defs><style>.cls-1{fill:#bfe7f3;}.cls-2{fill:#f172ac;}.cls-3{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:4px;}.cls-8{fill:#f04e56;}.cls-5{fill:#3d54a4;}</style></defs><path class="cls-1" d="M139.69,368.91H402.77c37.15.44,69-27.19,73.72-63.57,4.65-35.56-17.84-69.82-52.75-79.8.35-1.71,6.75-35.9-17.59-58.16-20-18.33-52-20.5-77.09-4.06a106.35,106.35,0,0,0-196.13,64.92c-29.17,11-48.59,38.64-48.69,69C84.12,330.22,106.85,359.93,139.69,368.91Z"/><circle cx="315.53" cy="266.12" r="10.82"/><circle cx="233.7" cy="266.79" r="10.82"/><circle class="cls-2" cx="221.53" cy="293.84" r="6.76"/><circle class="cls-2" cx="332.44" cy="293.84" r="6.76"/><path class="cls-3" d="M258.05,280.32c1.61,8.6,8.29,15.15,16.23,16.23,9.6,1.31,19.42-5.58,21.64-16.23"/><path class="cls-8" d="M232.36,245.7a14.86,14.86,0,0,0-17.17-4.77c-6.72,2.8-10.44,10.73-8.11,18.25a63.11,63.11,0,0,0,24.64,27.23,51.54,51.54,0,0,0,25.76-28.94,14,14,0,0,0-25.12-11.77Z"/><path class="cls-8" d="M314.87,244.35a14.85,14.85,0,0,0-17.17-4.77c-6.72,2.8-10.45,10.73-8.11,18.25a63,63,0,0,0,24.64,27.22A51.56,51.56,0,0,0,340,256.12a14,14,0,0,0-25.12-11.77Z"/><path class="cls-5" d="M348.22,86.85A11.39,11.39,0,1,0,336.7,67.2a11.23,11.23,0,0,0-22.44,0,11.68,11.68,0,0,0-12.38,19.65A11.54,11.54,0,0,0,313,106.51a12.92,12.92,0,0,0,24.51,0,11.61,11.61,0,0,0,14.12-3.39C355.13,98.24,353.88,90.68,348.22,86.85Z"/><path class="cls-5" d="M91.23,219.41a11.4,11.4,0,1,0-11.52-19.66,11.23,11.23,0,0,0-22.44,0,11.69,11.69,0,0,0-12.38,19.66A11.54,11.54,0,0,0,56,239.06a12.91,12.91,0,0,0,24.5,0,11.61,11.61,0,0,0,14.13-3.39C98.14,230.79,96.88,223.23,91.23,219.41Z"/><path class="cls-5" d="M541.65,273.51a11.4,11.4,0,1,0-11.53-19.66,11.23,11.23,0,0,0-22.44,0,11.69,11.69,0,0,0-12.38,19.66,11.54,11.54,0,0,0,11.1,19.65,12.92,12.92,0,0,0,24.51,0A11.61,11.61,0,0,0,545,289.78C548.55,284.9,547.3,277.33,541.65,273.51Z"/></svg>`,
+    medium: `<svg id="Layer_2" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 577 501"><defs><style>.cls-6{fill:#f7ec13;}.cls-2{fill:#f172ac;}.cls-3{fill:#fff;}.cls-4{fill:#f15a26;stroke:#000;stroke-width:4px;}.cls-4,.cls-5{stroke-miterlimit:10;}.cls-5{fill:#f79420;stroke:#f79420;stroke-width:3px;}</style></defs><path class="cls-6" d="M130.09,370.62H393.17c37.15.43,69-27.2,73.72-63.57,4.65-35.57-17.84-69.82-52.75-79.81.35-1.71,6.74-35.89-17.59-58.16-20-18.33-52-20.5-77.1-4.06A106.35,106.35,0,0,0,123.33,230c-29.17,11-48.59,38.63-48.69,69C74.52,331.93,97.25,361.63,130.09,370.62Z"/><circle class="cls-2" cx="211.92" cy="295.55" r="6.76"/><circle class="cls-2" cx="322.84" cy="295.55" r="6.76"/><circle class="cls-3" cx="226.13" cy="266.47" r="16.23"/><circle cx="226.13" cy="266.47" r="8.12"/><circle class="cls-3" cx="303.9" cy="264.44" r="16.23"/><circle cx="303.9" cy="264.44" r="8.12"/><rect class="cls-4" x="230.86" y="294.2" width="70.33" height="16.23" rx="6"/><circle class="cls-5" cx="344.48" cy="107.54" r="22.32"/><circle class="cls-5" cx="524.37" cy="295.55" r="22.32"/><circle class="cls-5" cx="52.32" cy="226.57" r="22.32"/></svg>`,
+    hard: `<svg id="Layer_3" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 577 501"><defs><style>.cls-7{fill:#ed2024;}.cls-2{fill:#f172ac;}.cls-3,.cls-4{fill:none;stroke:#000;stroke-miterlimit:10;}.cls-3{stroke-width:4px;}.cls-4{stroke-width:5px;}.cls-5{fill:#fce68f;}</style></defs><path class="cls-7" d="M160.46,376.5H423.54c37.15.44,69-27.2,73.72-63.57,4.65-35.56-17.84-69.82-52.75-79.8.35-1.71,6.75-35.9-17.59-58.16-20-18.33-52-20.51-77.09-4.06A106.35,106.35,0,0,0,153.7,235.83c-29.17,11-48.59,38.64-48.69,69C104.89,337.81,127.62,367.52,160.46,376.5Z"/><circle cx="336.3" cy="273.71" r="10.82"/><circle cx="254.47" cy="274.38" r="10.82"/><circle class="cls-2" cx="242.29" cy="301.43" r="6.76"/><circle class="cls-2" cx="353.21" cy="301.43" r="6.76"/><path class="cls-3" d="M278.81,304.3c1.62-8.6,8.3-15.15,16.24-16.23,9.59-1.31,19.42,5.58,21.64,16.23"/><line class="cls-4" x1="242.29" y1="254.09" x2="272.05" y2="268.97"/><line class="cls-4" x1="316.45" y1="268.92" x2="346.21" y2="254.04"/><polygon class="cls-5" points="470.75 91.78 446.54 143.25 470.75 149.42 458.65 201.34 498 140.22 472.27 133.59 470.75 91.78"/><polygon class="cls-5" points="334.14 26.86 309.93 78.32 334.14 84.49 322.03 136.42 361.39 75.29 335.66 68.67 334.14 26.86"/><polygon class="cls-5" points="102.85 159.41 78.63 210.88 102.85 217.05 90.74 268.97 130.09 207.85 104.36 201.22 102.85 159.41"/></svg>`
+};
 
 function newElement() {
-    var inputValue = document.getElementById("myInput").value;
-    
-    if (inputValue === '') {
+    const taskInput = document.getElementById("myInput");
+    const taskText = taskInput.value.trim();
+    const selectedDifficulty = document.querySelector('input[name="difficulty"]:checked')?.value;
+
+    if (taskText) {
+        const taskId = `task-${Date.now()}`;
+        const difficultySVG = difficultySVGs[selectedDifficulty] || '';
+
+        const listItem = document.createElement('li');
+        listItem.className = 'list-item';
+
+        listItem.innerHTML = `
+            <input type="checkbox" class="hidden-box" id="${taskId}" />
+            <label for="${taskId}" class="check--label">
+                <span class="check--label-box"></span>
+                <span class="check--label-text">${taskText}</span>
+                <span class="difficulty-icon">${difficultySVG}</span>
+                <span class="close" onclick="removeItem(this)">&times;</span>
+            </label>
+        `;
+
+        document.getElementById('mylist').appendChild(listItem);
+        taskInput.value = ''; 
+    } else {
         alert("You must write something!");
-        return;
-    }
-
-    var li = document.createElement("li");
-    li.className = "list-item";
-
-    var checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.className = "hidden-box";
-    checkbox.id = "task" + Date.now(); // Unique ID for each checkbox
-
-    var label = document.createElement("label");
-    label.className = "check--label";
-    label.setAttribute("for", checkbox.id);
-
-    var labelBox = document.createElement("span");
-    labelBox.className = "check--label-box";
-
-    var labelText = document.createElement("span");
-    labelText.className = "check--label-text";
-    labelText.textContent = inputValue;
-
-    label.appendChild(labelBox);
-    label.appendChild(labelText);
-
-    li.appendChild(checkbox);
-    li.appendChild(label);
-    addCloseButton(li);
-    
-    document.getElementById("mylist").appendChild(li);
-    document.getElementById("myInput").value = "";
-}
-
-// Function to add close button functionality
-function addCloseButton(li) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-
-    span.onclick = function() {
-        li.remove();
     }
 }
 
-// Clear all tasks from the list
+function removeItem(closeBtn) {
+    const listItem = closeBtn.closest('li');
+    if (listItem) listItem.remove();
+}
+
 function clearList() {
-    var list = document.getElementById("mylist");
+    const list = document.getElementById('mylist');
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
 }
+// function newElement() {
+//     var inputValue = document.getElementById("myInput").value;
+//     var easyValue = document.getElementById("easy").value;
+
+//     // Get the selected radio button value
+//     var selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
+
+//     if (inputValue === '') {
+//         alert("You must write something!");
+//         return;
+//     }
+
+//     var li = document.createElement("li");
+//     li.className = "list-item";
+
+//     var checkbox = document.createElement("input");
+//     checkbox.type = "checkbox";
+//     checkbox.className = "hidden-box";
+//     checkbox.id = "task" + Date.now(); // Unique ID for each checkbox
+
+//     var label = document.createElement("label");
+//     label.className = "check--label";
+//     label.setAttribute("for", checkbox.id);
+
+//     var labelBox = document.createElement("span");
+//     labelBox.className = "check--label-box";
+
+//     // Create the close button inside the labelBox
+//     var closeBtn = document.createElement("span");
+//     closeBtn.className = "close";
+//     closeBtn.textContent = "\u00D7";
+//     closeBtn.onclick = function() {
+//         li.remove();
+//     };
+//     labelBox.appendChild(closeBtn); // Add close button inside labelBox
+
+//     var labelText = document.createElement("span");
+//     labelText.className = "check--label-text";
+//     labelText.textContent = inputValue;
+
+//     var difficultyLabel = document.createElement("span");
+//     difficultyLabel.className = "difficulty-text";
+
+//     var radioButton = document.createElement("input");
+//     radioButton.type = "radio";
+//     radioButton.name = "taskDifficulty";
+//     radioButton.value = selectedDifficulty;
+//     radioButton.id = "radio_" + Date.now();
+
+//     var radioLabel = document.createElement("label");
+//     radioLabel.setAttribute("for", radioButton.id);
+//     radioLabel.textContent = selectedDifficulty;
+
+//     // Append everything
+//     label.appendChild(labelBox);
+//     label.appendChild(labelText);
+//     label.appendChild(difficultyLabel);
+//     label.appendChild(radioButton);
+//     label.appendChild(radioLabel);
+
+//     li.appendChild(checkbox);
+//     li.appendChild(label);
+
+//     document.getElementById("mylist").appendChild(li);
+//     document.getElementById("myInput").value = "";
+// }
 
 // function addTask() {
 //     const taskInput = document.getElementById('newTask');
