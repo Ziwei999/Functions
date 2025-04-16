@@ -212,8 +212,8 @@ section{
 
   #myInput{
     width: 100%;
-    padding: .5rem;
-    margin-bottom: 2rem;
+    /* padding: .5rem; */
+    /* margin-bottom: 2rem; */
   }
 
 
@@ -224,7 +224,12 @@ section{
     width: 30%;
     padding: 0.5rem 1rem;
     border: 1px solid black;
+    margin-top: 1rem;
 
+  }
+
+  ul{
+    padding: 0;
   }
 
   .task{
@@ -443,9 +448,9 @@ section{
   }
   
   .hidden-box {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+    /* position: absolute; */
+    /* top: -9999px;
+    left: -9999px; */
     appearance: none;
     opacity: 0;
   }
@@ -474,7 +479,7 @@ section{
     align-self: center;
     position: relative;
     height: 20px;
-    width: 20px;
+    width: 700px;
     margin: 0 20px;
     border: 2px solid #3498db;
     border-radius: 2px;
@@ -487,7 +492,7 @@ section{
     cursor: pointer;
     padding: 20px;
     border-left: 1px solid #ecf0f1;
-    font-size: 1rem;
+    font-size: 1.2rem;
     
     &:after {
       content: '';
@@ -539,10 +544,35 @@ section{
   }
 
   .difficulty-icon svg{
-    width: 300%;
+    width: 800%;
   }
   fieldset{
     margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+  @media (min-width:1024px) {
+    fieldset{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* margin-right: 5rem; */
+    }
+
+    .level{
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .difficulty-icon svg {
+      width: 200%;
+    }
+
+    .check--label-text {
+      font-size: 2rem;
+    }
+  
   }
 
   
@@ -609,17 +639,17 @@ section{
     fieldset{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      margin-right: 5rem;
+      margin-right: 3rem;
     }
 
     text{
       font-size: 1.5rem;
     }
-
+/* 
     .level{
       padding-left: 3rem;
       padding-right: 3rem;
-    }
+    } */
 
     .check--label-text{
       font-size: 2.5rem;
