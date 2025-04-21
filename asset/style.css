@@ -1,146 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Itim&family=Jua&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root{
+  --border-style: 2px solid black;
+  --border-radius: 5px;
+  --size-small: 1rem;
+  --backcolor-1: white;
+  --regular-size: 2rem;
+}
 body{
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin-left: var(--regular-size);
+    margin-right: var(--regular-size);
     background-color: #FCC02A;
-    font-family: "Fraunces", serif;
+    font-family: "Jua", sans-serif;
+    letter-spacing: 1px;
 }
 
 #levels{
     width: 50%;
 }
-
+/* 
 option{
     width: 50%;
     background-color: red;
-}
+} */
 
 h1{
   font-size: 3rem;
   text-align: center;
 }
 
-.circle1{
-   
-    background-color: red;
-    border-radius: 50%;
-    display: inline-block;
+
+  section{
+    padding-top: var(--size-small);
 }
-
-section{
-    padding-top: 1rem;
-}
-
-/* .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-toggle {
-    background: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    min-width: 200px;
-    z-index: 1;
-  }
-  
-  .circular-menu {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: #f1f1f1;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .circular-menu a {
-    display: block;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    margin: 5px;
-    background: #3498db;
-    color: #FE688E;
-    text-align: center;
-    border-radius: 50%;
-    text-decoration: none;
-    position: absolute;
-  } */
-
 
   .container {
     display: flex;
     flex-direction: column;
     /* align-items: center; */
   }
-  
-  /* .countdown-container {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin-bottom: 20px;
-    margin-left: 4.5rem;
-    border: 2px solid blueviolet;
-    background-color: antiquewhite;
-  }
-  
-  #countdownText {
-    font-weight: bold;
-    color: #FE688E;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transform: translate(-14%, -2%);
-  }
 
-  #hourInput, #minuteInput{
-    margin-left: 2rem;
+  #mytodo{
+    margin-top: var(--regular-size);
   }
   
-  .controls {
-    text-align: center;
-    width: 100%;
-  } */
-  
-  /* input[type="number"] {
-    padding: 10px;
-    font-size: 18px;
-    font-family: 'Orbitron', Helvetica, sans-serif;
-    width: 80%;
-    border: 1px solid #fff;
-    margin-bottom: 15px;
-    outline: none;
-    text-align: center;
-    background-color: #3498db;
-    color: #FE688E;
-  }
-  
-  input[type="number"]:focus {
-    border-color: #FFFB7D;
-  }
-  
-  input[type="number"]::placeholder {
-    color: rgb(190, 189, 189);
-    opacity: 1;
-  }
-  
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  } */
   
   .buttons, button {
     display: flex;
@@ -153,8 +56,8 @@ section{
   }
   
   button lord-icon{
-    width:20px;
-    height:20px;
+    width: 20px;
+    height: 20px;
   }
   
   button::before {
@@ -168,7 +71,7 @@ section{
     right: 100%;
     z-index: -10;
     transition: right 0.3s;
-    border: 1px solid black;
+    /* border:  2px solid black;; */
   }
   
   button:active {
@@ -177,22 +80,33 @@ section{
 
   #myInput{
     width: 100%;
-    font-size: 1.6rem;
-    /* padding: .5rem; */
+    font-size: 1.2rem;
+    border: var(--border-style);
+    border-radius: var(--border-radius);
+    /* padding-left: 10px; */
+    padding: var(--size-small);
+    font-family: "Itim", cursive;
     /* margin-bottom: 2rem; */
   }
 
  
 
-  button{
+  button, .totask, .back{
     background-color: #3498db;
-    color: white;
-    border-radius: .5rem;
-    width: 30%;
-    padding: 0.5rem 1rem;
-    border: 1px solid black;
-    margin-top: 1rem;
+    color: var(--backcolor-1);
+    border-radius: var(--border-radius);
+    width: 40%;
+    padding: 0.5rem;
+    border: var(--border-style);
+    margin-top: var(--size-small);
+    font-size: 1.2rem;
+    font-family: "Itim", cursive;;
 
+  }
+
+  .backbtn{
+    margin-top: 1.5rem;
+    margin-bottom: var(--regular-size);
   }
 
   ul{
@@ -200,17 +114,17 @@ section{
   }
 
   .task{
-    border-radius: 5px;
-    border: 2px solid black;
+    border-radius: var(--border-radius);
+    border:var(--border-style);
     padding-top: 0;
     background-color: #FE688E;
     color: black;
     font-size: 1.5rem;
-    padding: 1rem;
+    padding: var(--size-small);
   }
 
   li{
-    margin-top: 2rem;
+    margin-top: var(--regular-size);
     list-style-type: none;
   }
 
@@ -221,11 +135,11 @@ section{
 
   }
   
-  .easy, .medium, .hard{
+  /* .easy, .medium, .hard{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding: 0;
-  }
+  } */
 
   h3{
     grid-row: 1;
@@ -250,31 +164,24 @@ section{
     
   }
 
+  .level-sec{
+    border: var(--border-style);
+    border-radius: var(--border-radius);
+    margin-top: var(--size-small);
+    background-color: var(--backcolor-1);
+  }
+
   .radiobtn-e, .radiobtn-m, .radiobtn-h{
     display: inline-flex; 
     align-items: center; 
     gap: 20px;
-    background-color: white;
-    padding: 1rem;
+    padding: var(--size-small);
     
   }
-
-  .radiobtn-e{
-    border-radius: 5px 5px 0px 0px;
-  }
-
-  .radiobtn-h{
-    border-radius: 0px 0px 5px 5px;
-  }
-
-
 
   text{
     padding: 0;
     font-size: 1.3rem;
-    /* position: absolute;
-    padding-top: 6rem;
-    padding-left: 1.5rem; */
   }
 
 
@@ -286,49 +193,22 @@ section{
     padding: 0;
     width: 80%;
     max-width: 500px;
-    background-color: #fff;
-    border-radius: 6px;
+    background-color: var(--backcolor-1);
+    border-radius: var(--border-radius);
     box-shadow: 10px 10px 0 0 rgba(0,0,0,0.2);
     list-style: none;
     overflow: hidden;
-    
-    .list-item {
-      margin: 0;
-      padding: 0;
-      border-bottom: 1px solid #ecf0f1;
-      position: relative;
-      
-      &:last-child {
-        border: 0;
-      }
-    }
   }
   
   .hidden-box {
-    /* position: absolute; */
-    /* top: -9999px;
-    left: -9999px; */
     appearance: none;
     opacity: 0;
   }
-
-  /* .check--label, .check--label-text{
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  } */
   
   .check--label {
-    /* font-size: 20px;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center; */
     width: 90%;
-    background-color: white;
-    padding-right: 2rem;
+    background-color: var(--backcolor-1);
+    padding-right: 1rem;
   }
   
   .check--label-box {
@@ -339,7 +219,7 @@ section{
     width: 25px;
     margin: 0 1.5rem;
     border: 2px solid #3498db;
-    border-radius: 2px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     flex-shrink: 0;
   }
@@ -350,22 +230,8 @@ section{
     cursor: pointer;
     padding: 20px;
     /* border-left: 1px solid #ecf0f1; */
-    font-size: 1rem;
+    font-size: var(--size-small);
     flex-grow: 1;
-    
-    /* &:after {
-      content: '';
-      display: block;
-      width: 0%;
-      height: 2px;
-      background-color: #000;
-      position: absolute;
-      top: 50%;
-      left: 7.5%;
-      transform: translateY(-50%);
-      transition: width 100ms ease-in-out;
-
-    } */
   }
 
   .hidden-box:checked{
@@ -389,17 +255,17 @@ section{
         transform: rotate(45deg);
       }
     }
-    .check--label-text {
+    /* .check--label-text {
       &:after {
         width: 85%;
       }
-    }
+    } */
   }
 
   .close{
     /* cursor: pointer; */
-    padding-left: 1rem;
-    font-size: 2.5rem;
+    padding-left: var(--size-small);
+    font-size: var(--regular-size);
   }
 
   .difficulty-icon svg{
@@ -410,7 +276,10 @@ section{
   }
   fieldset{
     margin-top: 2rem;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
+    border: 0;
+    padding: 0;
+    font-size: 1.5rem;
     /* display: grid;
     grid-template-columns: repeat(3, 1fr); */
   }
@@ -420,26 +289,19 @@ section{
     height: 30px;
   }
 
-  @media (min-width:521px) {
-    fieldset{
-      margin-top: 2rem;
-      border-radius: 5px;
-      display: grid;
-      /* grid-template-columns: repeat(3, 1fr); */
-    }
-
-    text{
-      font-size: 2rem;
-    }
-
+  a{
+    text-decoration: none;
   }
 
   @media (min-width:768px) {
-    fieldset{
+    .level-sec{
       margin-top: 2rem;
-      border-radius: 5px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    .check--label{
+      width: 100%;
     }
 
     .check--label-box {
@@ -465,6 +327,12 @@ section{
 
     .difficulty-icon svg{
       width: 100%;
+      scale: 1.5;
+    }
+
+    .close{
+      padding-right: 2rem;
+      padding-left: 3rem;
     }
     
 
@@ -472,9 +340,10 @@ section{
 
 
   @media (min-width:1024px) {
-    fieldset{
+    .level-sec{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      /* width: 110%; */
       /* margin-right: 5rem; */
     }
 
@@ -485,6 +354,7 @@ section{
 
     .difficulty-icon svg {
       width: 100%;
+      scale: 2;
     }
 
     .check--label-text {
@@ -512,9 +382,6 @@ section{
       height: 20%;
     }
 
-    h1{
-      margin-left: 8rem;
-    }
 
     h2{
       font-size: 2rem;
@@ -554,20 +421,23 @@ section{
       font-size: 2rem;
     }
 
-    fieldset{
+    .level-sec{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      /* width: 110%; */
+      /* width: 185%; */
       margin-right: 3rem;
+    }
+
+    .close{
+      padding-left: 5rem;
+      padding-right: 2rem;
+      font-size: 3rem;
     }
 
     text{
       font-size: 1.5rem;
     }
-/* 
-    .level{
-      padding-left: 3rem;
-      padding-right: 3rem;
-    } */
 
     .check--label-text{
       font-size: 2.5rem;
@@ -575,15 +445,16 @@ section{
 
     .difficulty-icon svg{
       width: 100%;
+      scale: 2;
+      /* margin-right: 8rem; */
     }
 
-    /* .easy{
-      width: 100%;
+    .totask, .back{
+      display: none;
     }
 
-    .radiobtn{
-      width: 70%;
-      padding-left: 3rem;
+    #easy, #medium, #hard{
+      width: 60px;
+      height: 60px;
     }
-     */
   }
