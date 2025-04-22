@@ -15,24 +15,18 @@ body{
     letter-spacing: 1px;
 }
 
-#levels{
-    width: 50%;
-}
-/* 
-option{
-    width: 50%;
-    background-color: red;
-} */
 
-h1{
-  font-size: 3rem;
-  text-align: center;
-}
+
+  h1{
+    font-size: 3rem;
+    text-align: center;
+  }
+  
 
 
   section{
     padding-top: var(--size-small);
-}
+  }
 
   .container {
     display: flex;
@@ -208,7 +202,7 @@ h1{
   .check--label {
     width: 90%;
     background-color: var(--backcolor-1);
-    padding-right: 1rem;
+    padding-right:var(--size-small);
   }
   
   .check--label-box {
@@ -275,7 +269,7 @@ h1{
     height: 50px;
   }
   fieldset{
-    margin-top: 2rem;
+    margin-top: var(--regular-size);
     border-radius: var(--border-radius);
     border: 0;
     padding: 0;

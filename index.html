@@ -13,7 +13,7 @@
       <article class="container">
         <section class="functions">
             <h1 class="header">My To Do List</h1>
-            <section class="taskbtn">
+            <section class="taskbtn" id="tasks">
               <a class="totask" href="#tasksec">See My Tasks</a>
             </section>
             <form id="input-dropdown">
@@ -53,26 +53,12 @@
               <h2>My Tasks</h2>
               <section class="task" id="tasksec" ondragover="allowDrop(event)" ondrop="drop(event)"> 
                   <ul id="mylist">
-                      <!-- <li class="list-item">
-                          <input type="checkbox" class="hidden-box" id="sample" checked/>
-                          <label for="sample" class="check--label">
-                              <span class="check--label-box"></span>
-                              <span class="check--label-text">Research</span>
-                              <span class="close">&times;</span>
-                              
-                          
-                      </li> -->
                   </ul>
                   <button class="clearbtn" onclick="clearList()">Clear All</button>
               </section>
-              <!-- <section class="timer">
-                  <a href="timer.html">
-                      <button class="timebtn">Set a Timer</button>
-                  </a>
-              </section>   -->
             </section>
             <section class="backbtn">
-              <a class="back" href="#mytodo">Back To Add</a>
+              <a class="back" href="#tasks">Back To Add</a>
             </section>
             
                

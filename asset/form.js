@@ -44,22 +44,13 @@ const storeParams = () => {
 	})
 }
 
-// Function to update the URL from the form
+
 const updateUrlParams = () => {
-	let formParams = new FormData(formElement) // Get the form data
-	formParams = new URLSearchParams(formParams) // Make it into params
-	formParams = formParams.toString() // And then into a string
-
-	// You could also write this as:
-	// let formParams = new URLSearchParams(new FormData(formElement)).toString()
-
-	// Update the URL with the params at the end
+	let formParams = new FormData(formElement) 
+	formParams = new URLSearchParams(formParams) 
+	formParams = formParams.toString() 
 	window.history.replaceState(null, null, '?' + formParams)
-
-	// And also store them!
 	storeParams()
-
-	// And a callback!
 	window.stateCallback?.()
 }
 
@@ -183,7 +174,7 @@ function loadTasks() {
 	tasks.forEach(task => addTaskToDOM(task));
 }
 
-// Allow pressing Enter key to add tasks
+
 document.getElementById('myInput').addEventListener('keypress', function(e) {
 	if (e.key === 'Enter') {
 		e.preventDefault();
@@ -191,108 +182,6 @@ document.getElementById('myInput').addEventListener('keypress', function(e) {
 	}
 });
 
-// function newElement() {
-//     var inputValue = document.getElementById("myInput").value;
-//     var easyValue = document.getElementById("easy").value;
-
-//     // Get the selected radio button value
-//     var selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
-
-//     if (inputValue === '') {
-//         alert("You must write something!");
-//         return;
-//     }
-
-//     var li = document.createElement("li");
-//     li.className = "list-item";
-
-//     var checkbox = document.createElement("input");
-//     checkbox.type = "checkbox";
-//     checkbox.className = "hidden-box";
-//     checkbox.id = "task" + Date.now(); // Unique ID for each checkbox
-
-//     var label = document.createElement("label");
-//     label.className = "check--label";
-//     label.setAttribute("for", checkbox.id);
-
-//     var labelBox = document.createElement("span");
-//     labelBox.className = "check--label-box";
-
-//     // Create the close button inside the labelBox
-//     var closeBtn = document.createElement("span");
-//     closeBtn.className = "close";
-//     closeBtn.textContent = "\u00D7";
-//     closeBtn.onclick = function() {
-//         li.remove();
-//     };
-//     labelBox.appendChild(closeBtn); // Add close button inside labelBox
-
-//     var labelText = document.createElement("span");
-//     labelText.className = "check--label-text";
-//     labelText.textContent = inputValue;
-
-//     var difficultyLabel = document.createElement("span");
-//     difficultyLabel.className = "difficulty-text";
-
-//     var radioButton = document.createElement("input");
-//     radioButton.type = "radio";
-//     radioButton.name = "taskDifficulty";
-//     radioButton.value = selectedDifficulty;
-//     radioButton.id = "radio_" + Date.now();
-
-//     var radioLabel = document.createElement("label");
-//     radioLabel.setAttribute("for", radioButton.id);
-//     radioLabel.textContent = selectedDifficulty;
-
-//     // Append everything
-//     label.appendChild(labelBox);
-//     label.appendChild(labelText);
-//     label.appendChild(difficultyLabel);
-//     label.appendChild(radioButton);
-//     label.appendChild(radioLabel);
-
-//     li.appendChild(checkbox);
-//     li.appendChild(label);
-
-//     document.getElementById("mylist").appendChild(li);
-//     document.getElementById("myInput").value = "";
-// }
-
-// function addTask() {
-//     const taskInput = document.getElementById('newTask');
-//     const taskText = taskInput.value.trim();
-
-//     if (taskText) {
-//         const listItem = document.createElement('li');
-//         listItem.className = 'list-item';
-
-//         listItem.innerHTML = `
-//             <input type="checkbox" class="hidden-box" id="task-${Date.now()}" />
-//             <label for="task-${Date.now()}" class="check--label">
-//                 <span class="check--label-box"></span>
-//                 <span class="check--label-text">${taskText}</span>
-//                 <span class="close" onclick="removeItem(this)">&times;</span>
-//             </label>
-//         `;
-
-//         document.getElementById('mylist').appendChild(listItem);
-//         taskInput.value = ''; // Clear input field
-//     }
-// }
-
-// function removeItem(element) {
-//     const listItem = element.closest('.list-item');
-//     if (listItem) {
-//         listItem.remove();
-//     }
-// }
-
-// function clearList() {
-//     const list = document.getElementById('mylist');
-//     while (list.firstChild) {
-//         list.removeChild(list.firstChild);
-//     }
-// }
 
 let timer;
 let totalTime;
