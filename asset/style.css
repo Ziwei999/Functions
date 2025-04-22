@@ -126,7 +126,7 @@ body{
     width: 100%;
     display: flex;
     align-items: center;
-
+    /* border-radius: var(--border-radius); */
   }
   
   /* .easy, .medium, .hard{
@@ -203,6 +203,7 @@ body{
     width: 90%;
     background-color: var(--backcolor-1);
     padding-right:var(--size-small);
+    border-radius: var(--border-radius);
   }
   
   .check--label-box {
@@ -306,7 +307,7 @@ body{
     .hidden-box:checked + .check--label {
       & .check--label-box {
           &:after {
-              top: 10px;
+              top: 14px;
               left: 20px;
               border-width: 0 5px 5px 0;
               text-align: center;
